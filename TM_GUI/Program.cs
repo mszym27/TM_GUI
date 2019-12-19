@@ -19,9 +19,12 @@ namespace TM_GUI
 
             var gui = new GUI();
 
-            Application.Run(gui);
+            gui.addTapeElement("a");
+            gui.addTapeElement("a");
+            gui.addTapeElement("b");
+            gui.addTapeElement("a");
 
-            //gui.//listViewMachineTape.Items.Add("Mahesh Chand");
+            Application.Run(gui);
         }
     }
 }

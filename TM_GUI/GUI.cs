@@ -17,12 +17,19 @@ namespace TM_GUI
             InitializeComponent();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
+        public void addTapeElement(string symbol)
         {
+            // dodanie indeksu elementu
+            this.listViewMachineTape.Columns.Add(
+                (listViewMachineTape.Columns.Count + 1).ToString(), 
+                20
+            );
 
+            // dodanie samego elementu
+            this.listViewMachineTape.Items.Add(symbol);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void buttonNext_Click(object sender, EventArgs e)
         {
 
         }
