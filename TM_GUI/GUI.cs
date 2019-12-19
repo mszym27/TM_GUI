@@ -17,13 +17,23 @@ namespace TM_GUI
             InitializeComponent();
         }
 
+        public void initTape(string symbols)
+        {
+            foreach(var symbol in symbols)
+            {
+                this.listViewMachineTape.Items.Add(symbol.ToString());
+            }
+
+            this.listViewMachineTape.Items.Add("#");
+        }
+
         public void addTapeElement(string symbol)
         {
-            // dodanie indeksu elementu
-            this.listViewMachineTape.Columns.Add(
-                (listViewMachineTape.Columns.Count + 1).ToString(), 
-                20
-            );
+            //// dodanie indeksu elementu
+            //this.listViewMachineTape.Columns.Add(
+            //    (listViewMachineTape.Columns.Count + 1).ToString(), 
+            //    1000
+            //);
 
             // dodanie samego elementu
             this.listViewMachineTape.Items.Add(symbol);

@@ -19,10 +19,11 @@ namespace TM_GUI
 
             var gui = new GUI();
 
-            gui.addTapeElement("a");
-            gui.addTapeElement("a");
-            gui.addTapeElement("b");
-            gui.addTapeElement("a");
+            gui.initTape("ababbaba");
+
+            //gui.addTapeElement("a");
+            //gui.addTapeElement("b");
+            //gui.addTapeElement("a");
 
             Application.Run(gui);
         }
