@@ -46,8 +46,8 @@ namespace TM_GUI
                 transitionOutput = new Dictionary<char, char> { ['a'] = 'b', ['b'] = 'a', ['#'] = '#' }
             };
 
-            q0.transitions = new Dictionary<char, State> { ['a'] = qa, ['b'] = q0, ['#'] = q0 };
-            qa.transitions = new Dictionary<char, State> { ['a'] = q0, ['b'] = q0, ['#'] = qa };
+            q0.transitions = new Dictionary<char, string> { ['a'] = "qa", ['b'] = "q0", ['#'] = "q0" };
+            qa.transitions = new Dictionary<char, string> { ['a'] = "q0", ['b'] = "q0", ['#'] = "qa" };
 
             states.Add(q0);
             states.Add(qa);
@@ -55,12 +55,10 @@ namespace TM_GUI
             currentState = q0;
         }
 
-        ///// <summary>
-        ///// inicjalizuje interfejs graficzny, uzupelniajac go od razu
-        ///// </summary>
-        //public void initGui()
-        //{
-        //}
+        public char GetCurrentSymbol()
+        {
+            return tape[head];
+        }
 
         /// <summary>
         /// przechodzi do kolejnego stanu, na podstawie symbolu spod glowicy
@@ -68,8 +66,17 @@ namespace TM_GUI
         /// </summary>
         public void transition()
         {
-            head += 1;
+            var symbol = tape.ElementAt(head);
 
+            currentState = GetStateByName(currentState.transitions[symbol]);
+            tape[head] = currentState.transitionOutput[symbol];
+
+            head += 1;
+        }
+
+        private State GetStateByName(string stateName)
+        {
+            return states.Where(q => q.stateName == stateName).First();
         }
     }
 }

@@ -11,8 +11,8 @@ namespace TM_GUI
         // identyfikuje dany stan
         public string stateName;
 
-        // przejscia - mapuje alfabet wejscia na stany
-        public Dictionary<char, State> transitions;
+        // przejscia - mapuje alfabet wejscia na stany, identyfikowane po nazwach
+        public Dictionary<char, string> transitions;
 
         // odpowiada za mapowanie alfabetu wejscia na symbole wyjsciowe
         public Dictionary<char, char> transitionOutput;

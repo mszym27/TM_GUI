@@ -14,10 +14,9 @@ namespace TM_GUI
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TM_GUI());
+            Application.Run(new TM_GUI("baba"));
         }
     }
 }

@@ -17,12 +17,11 @@ namespace TM_GUI
 
         private TuringMachine TM;
 
-        public TM_GUI()
+        public TM_GUI(string inputTape)
         {
             InitializeComponent();
 
-            TM = new TuringMachine("ababbabaaaaaabbbabbba");
-            //TM = new TuringMachine("0123456789abcdefg");
+            TM = new TuringMachine(inputTape);
 
             refreshGui();
         }
@@ -60,6 +59,11 @@ namespace TM_GUI
         private void buttonNext_Click(object sender, EventArgs e)
         {
             TM.transition();
+
+            if(TM.GetCurrentSymbol() == '#')
+            {
+                buttonNext.Enabled = false;
+            }
 
             refreshGui();
         }
