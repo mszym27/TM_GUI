@@ -12,6 +12,7 @@ namespace TM_GUI
 {
     public partial class TM_GUI : Form
     {
+        // na liscie miesci sie 6 itemow
         private const int MAX_LIST_VISIBILITY = 5;
 
         private TuringMachine TM;
@@ -20,8 +21,8 @@ namespace TM_GUI
         {
             InitializeComponent();
 
-            //TM = new TuringMachine("ababbabaaaaaabbbabbba");
-            TM = new TuringMachine("0123456789abcdefg");
+            TM = new TuringMachine("ababbabaaaaaabbbabbba");
+            //TM = new TuringMachine("0123456789abcdefg");
 
             refreshGui();
         }
@@ -30,19 +31,16 @@ namespace TM_GUI
         {
             listViewMachineTape.Items.Clear();
 
-            //TM.head <= 5 ? 0 ; 
-            for (int i = (TM.head <= MAX_LIST_VISIBILITY ? 0 : (TM.head - MAX_LIST_VISIBILITY)); i < TM.tape.Count; i++)
-            {
-                // na liscie miesci sie 6 itemow,  
-                listViewMachineTape.Items.Add(TM.tape[i].ToString());
+            var listVisibleStart = (TM.head <= MAX_LIST_VISIBILITY ? 0 : (TM.head - MAX_LIST_VISIBILITY));
 
+            for (int i = listVisibleStart; i < TM.tape.Count; i++)
+            {
+                listViewMachineTape.Items.Add(TM.tape[i].ToString());
             }
 
-            //foreach(var symbol in TM.tape)
-            //{
-            //}
+            var headVisiblePos = (TM.head <= MAX_LIST_VISIBILITY ? TM.head : MAX_LIST_VISIBILITY);
 
-            //listViewMachineTape.Items[(TM.head <= MAX_LIST_VISIBILITY ? TM.head : (TM.head - MAX_LIST_VISIBILITY))].ForeColor = Color.Red;
+            listViewMachineTape.Items[headVisiblePos].ForeColor = Color.Red;
         }
 
         public void showCurrentStateName()
