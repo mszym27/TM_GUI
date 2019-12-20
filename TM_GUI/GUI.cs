@@ -10,43 +10,48 @@ using System.Windows.Forms;
 
 namespace TM_GUI
 {
-    public partial class GUI : Form
+    public partial class TM_GUI : Form
     {
-        public GUI()
+        private TuringMachine TM;
+
+        public TM_GUI()
         {
             InitializeComponent();
+
+            TM = new TuringMachine("ababbaba");
+
+            refreshGui();
         }
 
-        public void showTape(List<char> symbols, int head)
+        public void showTape()
         {
-            foreach(var symbol in symbols)
+            foreach(var symbol in TM.tape)
             {
                 listViewMachineTape.Items.Add(symbol.ToString());
             }
 
-            listViewMachineTape.Items[head].ForeColor = Color.Red;
+            listViewMachineTape.Items[TM.head].ForeColor = Color.Red;
         }
 
-        public void showCurrentStateName(string currentStateName)
+        public void showCurrentStateName()
         {
-            textBoxCurrentState.Text = currentStateName;
+            textBoxCurrentState.Text = TM.currentState.stateName;
         }
 
-        //public void addTapeElement(string symbol)
-        //{
-        //    //// dodanie indeksu elementu
-        //    //this.listViewMachineTape.Columns.Add(
-        //    //    (listViewMachineTape.Columns.Count + 1).ToString(), 
-        //    //    1000
-        //    //);
-
-        //    // dodanie samego elementu
-        //    this.listViewMachineTape.Items.Add(symbol);
-        //}
+        /// <summary>
+        /// uzupelnia gui o aktualny stan oraz odswieza tasme
+        /// </summary>
+        private void refreshGui()
+        {
+            showTape();
+            showCurrentStateName();
+        }
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
+            TM.transition();
 
+            refreshGui();
         }
     }
 }

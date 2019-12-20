@@ -14,9 +14,10 @@ namespace TM_GUI
         [STAThread]
         static void Main()
         {
-            var TM = new TuringMachine("ababbaba");
 
-            TM.initGui();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new TM_GUI());
         }
     }
 }

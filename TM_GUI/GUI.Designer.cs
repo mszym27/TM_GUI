@@ -1,6 +1,6 @@
 ﻿namespace TM_GUI
 {
-    partial class GUI
+    partial class TM_GUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TM_GUI));
             this.buttonNext = new System.Windows.Forms.Button();
             this.currentStateLabel = new System.Windows.Forms.Label();
             this.textBoxCurrentState = new System.Windows.Forms.TextBox();

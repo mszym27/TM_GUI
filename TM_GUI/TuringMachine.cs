@@ -11,14 +11,12 @@ namespace TM_GUI
     {
         private List<State> states;
 
-        private State currentState;
+        public State currentState;
 
-        private List<char> tape;
+        public List<char> tape;
 
         // rosnaco od lewej do prawej
-        private int head;
-
-        private GUI gui;
+        public int head;
 
         public TuringMachine(string tapeSymbols)
         {
@@ -57,39 +55,21 @@ namespace TM_GUI
             currentState = q0;
         }
 
-        /// <summary>
-        /// inicjalizuje interfejs graficzny, uzupelniajac go od razu
-        /// </summary>
-        public void initGui()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            gui = new GUI();
-
-            refreshGui();
-
-            Application.Run(gui);
-        }
+        ///// <summary>
+        ///// inicjalizuje interfejs graficzny, uzupelniajac go od razu
+        ///// </summary>
+        //public void initGui()
+        //{
+        //}
 
         /// <summary>
         /// przechodzi do kolejnego stanu, na podstawie symbolu spod glowicy
         /// powoduje zapis na tasmie oraz przesuwa glowice
         /// </summary>
-        private void transition()
+        public void transition()
         {
             head += 1;
 
-            refreshGui();
-        }
-
-        /// <summary>
-        /// uzupelnia gui o aktualny stan oraz odswieza tasme
-        /// </summary>
-        private void refreshGui()
-        {
-            gui.showTape(tape, head);
-            gui.showCurrentStateName(currentState.stateName);
         }
     }
 }
