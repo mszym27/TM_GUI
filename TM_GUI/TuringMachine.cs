@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TM_GUI
 {
@@ -15,10 +16,13 @@ namespace TM_GUI
         private List<char> tape;
 
         // rosnaco od lewej do prawej
-        int currentTapePosition;
+        private int head;
 
-        TuringMachine(string tapeSymbols)
+        private GUI gui;
+
+        public TuringMachine(string tapeSymbols)
         {
+            states = new List<State>();
             tape = new List<char>();
 
             foreach (var symbol in tapeSymbols)
@@ -26,7 +30,9 @@ namespace TM_GUI
                 tape.Add(symbol);
             }
 
-            currentTapePosition = 0;
+            tape.Add('#'); // dodanie sztucznego symbolu konczacego
+
+            head = 0;
 
             // inicjalizacja na podstawie tablicy przejsc
 
@@ -47,8 +53,43 @@ namespace TM_GUI
 
             states.Add(q0);
             states.Add(qa);
+
+            currentState = q0;
         }
 
-        // metody do obslugi interfejsu graficznego maszyny
+        /// <summary>
+        /// inicjalizuje interfejs graficzny, uzupelniajac go od razu
+        /// </summary>
+        public void initGui()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            gui = new GUI();
+
+            refreshGui();
+
+            Application.Run(gui);
+        }
+
+        /// <summary>
+        /// przechodzi do kolejnego stanu, na podstawie symbolu spod glowicy
+        /// powoduje zapis na tasmie oraz przesuwa glowice
+        /// </summary>
+        private void transition()
+        {
+            head += 1;
+
+            refreshGui();
+        }
+
+        /// <summary>
+        /// uzupelnia gui o aktualny stan oraz odswieza tasme
+        /// </summary>
+        private void refreshGui()
+        {
+            gui.showTape(tape, head);
+            gui.showCurrentStateName(currentState.stateName);
+        }
     }
 }

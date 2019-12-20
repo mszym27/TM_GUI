@@ -14,18 +14,9 @@ namespace TM_GUI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            var TM = new TuringMachine("ababbaba");
 
-            var gui = new GUI();
-
-            gui.initTape("ababbaba");
-
-            //gui.addTapeElement("a");
-            //gui.addTapeElement("b");
-            //gui.addTapeElement("a");
-
-            Application.Run(gui);
+            TM.initGui();
         }
     }
 }

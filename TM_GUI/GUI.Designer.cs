@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.buttonNext = new System.Windows.Forms.Button();
             this.currentStateLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCurrentState = new System.Windows.Forms.TextBox();
             this.tapeLabel = new System.Windows.Forms.Label();
             this.listViewMachineTape = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,21 +64,21 @@
             this.currentStateLabel.TabIndex = 1;
             this.currentStateLabel.Text = "Aktualny stan";
             // 
-            // textBox1
+            // textBoxCurrentState
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(42, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxCurrentState.Location = new System.Drawing.Point(101, 26);
+            this.textBoxCurrentState.Name = "textBoxCurrentState";
+            this.textBoxCurrentState.Size = new System.Drawing.Size(31, 20);
+            this.textBoxCurrentState.TabIndex = 2;
             // 
             // tapeLabel
             // 
             this.tapeLabel.AutoSize = true;
-            this.tapeLabel.Location = new System.Drawing.Point(25, 86);
+            this.tapeLabel.Location = new System.Drawing.Point(12, 95);
             this.tapeLabel.Name = "tapeLabel";
-            this.tapeLabel.Size = new System.Drawing.Size(42, 13);
+            this.tapeLabel.Size = new System.Drawing.Size(306, 13);
             this.tapeLabel.TabIndex = 3;
-            this.tapeLabel.Text = "Taśma:";
+            this.tapeLabel.Text = "Taśma - aktualna pozycja głowicy oznaczona jest na czerwono";
             // 
             // listViewMachineTape
             // 
@@ -162,7 +162,7 @@
             this.ClientSize = new System.Drawing.Size(548, 195);
             this.Controls.Add(this.listViewMachineTape);
             this.Controls.Add(this.tapeLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCurrentState);
             this.Controls.Add(this.currentStateLabel);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.groupBox1);
@@ -185,7 +185,7 @@
 
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Label currentStateLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxCurrentState;
         private System.Windows.Forms.Label tapeLabel;
         private System.Windows.Forms.ListView listViewMachineTape;
         private System.Windows.Forms.Label label4;
