@@ -68,8 +68,8 @@ namespace TM_GUI
         {
             var symbol = tape.ElementAt(head);
 
-            currentState = GetStateByName(currentState.transitions[symbol]);
             tape[head] = currentState.transitionOutput[symbol];
+            currentState = GetStateByName(currentState.transitions[symbol]);
 
             head += 1;
         }
