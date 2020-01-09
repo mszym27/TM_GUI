@@ -21,6 +21,8 @@ namespace TM_GUI
         {
             InitializeComponent();
 
+            labelInput.Text = inputTape;
+
             TM = new TuringMachine(inputTape);
 
             refreshGui();
@@ -44,7 +46,7 @@ namespace TM_GUI
 
         public void showCurrentStateName()
         {
-            textBoxCurrentState.Text = TM.currentState.stateName;
+            labelCurrentState.Text = TM.currentState.stateName;
         }
 
         /// <summary>

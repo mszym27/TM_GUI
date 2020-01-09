@@ -16,7 +16,7 @@ namespace TM_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TM_GUI("baaba"));
+            Application.Run(new TM_GUI("abbabbabbabaaaabab"));
         }
     }
 }
